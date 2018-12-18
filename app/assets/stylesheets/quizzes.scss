@@ -1,0 +1,155 @@
+// Place all the styles related to the Quizzes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.panel {
+	border-color: #222 !important;
+}
+.line {
+	border-bottom: thin solid grey;
+	margin-bottom: 10px;
+}
+.square {
+	padding-left: initial!important;
+	padding-right: initial!important;
+  background-position:center center;
+  background-repeat:no-repeat;
+  background-size:cover; /* you change this to "contain" if you don't want the images to be cropped */
+  background-image:url('http://www.placehold.it/200.png');
+}
+.square:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+.answer {
+	.square {
+		margin-top: 20px;
+	}
+}
+button, input[type='submit'] {
+	margin-top: 20px !important;
+}
+.panel {
+	padding-top: 40px!important;
+	padding-bottom: 40px!important;
+	margin-top: 40px!important;
+}
+.noresize {
+	resize: none;
+}
+button, input[type='submit'] {
+	background-color: #008cff!important;
+	color: white !important;
+}
+.question {
+	padding-bottom: 15px;
+	border-bottom: thin solid grey;
+}
+.answer {
+	padding-top: 15px;
+}
+@media screen and (min-width: 1200px) {
+	.answer {
+		label {
+			margin-top: 3vw;
+			margin-left: 1vw;
+		}
+	}
+	.answer > :nth-child(n) {
+		border-right: thin solid grey;
+	}
+	.answer > :last-child {
+		border: none;
+	}
+}
+@media screen and (max-width: 1200px) {
+	.answer {
+		input[type='text'], #answer1, #answer2, #answer3, #answer4 {
+			margin-top: 20px;
+		}
+		label {
+			margin-top: 6vw;
+			margin-left: 1vw;
+		}
+	}
+	.answer > :nth-child(2n + 1) {
+		border-right: thin solid grey;
+	}
+	.answer > :last-child {
+		border: none;
+	}
+}
+@media screen and (max-width: 992px) {
+	.answer {
+		label {
+			margin-top: 10vw;
+			margin-left: 1vw;
+		}
+	}
+	.question {
+		.square {
+			float: none;
+			margin: 0 auto;
+			margin-top: 10px;
+		}
+	}
+}
+@media screen and (max-width: 768px) {
+	select {
+		margin-top: 15px !important;
+	}
+	.question {
+		.square {
+			float: none;
+			margin: 0 auto;
+			margin-top: 10px;
+		}
+		figcaption {
+			text-align: center;
+		}
+	}
+	.answer {
+		.square {
+			float: none;
+			margin: 0 auto;
+			margin-top: 10px;
+		}
+		label {
+			text-align: center;
+			display: block;
+	    margin-left: auto;
+	    margin-right: auto;
+	    margin-top: 0px;
+		}
+	}
+}
+// @media screen and (max-width: 992px) and (min-width: 768px) {
+// 	.question {
+// 		.square {
+// 			float: none;
+// 			margin: 0 auto;
+// 			margin-top: 10px;
+// 		}
+// 	}
+// }
+// @media screen and (min-width: 992px) {
+// 	.question {
+// 		button {
+// 			margin-top: 10px!important;
+// 		}
+// 	}
+// }
+@media screen and (min-width: 500px) {
+	.panel {
+		border-radius: 100px !important;
+	}
+}
+@media screen and (max-width: 500px) {
+	.panel {
+		border-radius: 15px !important;
+	}
+}
+
+
+
+

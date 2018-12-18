@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quiz: MyString
+  answer1: MyString
+  answer2: MyString
+  answer3: MyString
+  answer4: MyString
+  optQues: MyString
+  optAnswer1: MyString
+  optAnswer2: MyString
+  optAnswer3: MyString
+  optAnswer4: MyString
+  question: one
+
+two:
+  quiz: MyString
+  answer1: MyString
+  answer2: MyString
+  answer3: MyString
+  answer4: MyString
+  optQues: MyString
+  optAnswer1: MyString
+  optAnswer2: MyString
+  optAnswer3: MyString
+  optAnswer4: MyString
+  question: two

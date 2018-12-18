@@ -1,0 +1,83 @@
+<%= form_with scope: :quizzes, local: true, url: quizzes_path,  :class => "form-horizontal" do |form| %>
+  <% if @question.errors.any? || @quiz.errors.any? %>
+    <div class="row">
+      <div class="alert alert-warning alert-dismissible col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+        <a href="/quizzes/new" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <h2>Message!</h2> 
+        <ul>
+          <% @question.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          <% @quiz.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+  <% if @flag %>
+    <div class="row">
+      <div class="alert alert-success alert-dismissible col-lg-4 col-lg-offset-2t-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+        <a href="/quizzes/new" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Message!</strong> 
+        Successfully imported
+      </div>
+    </div>
+  <% end %>
+  <%= content_tag :div, class: "form-group" do -%>
+    <%= label_tag  "name", "Teacher Name", class: "control-label col-lg-2 col-md-2 col-sm-3 text-right" %>
+    <%= content_tag :div, class: "col-lg-4 col-md-4 col-sm-4" do -%>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+    <% end -%>
+  <% end -%>
+  <div class="form-group">
+    <label class="control-label col-lg-2 col-md-2 col-sm-3 text-right" for="category">Questions Category</label>
+    <div class="col-lg-4 col-md-4 col-sm-4">
+      <select class="form-control" id="category" name="category">
+        <option>Category1</option>
+        <option>Category2</option>
+        <option>Category3</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-lg-2 col-md-2 col-sm-3 text-right" for="level">Questions Level</label>
+    <div class="col-lg-4 col-md-4 col-sm-4">
+      <select class="form-control" id="level" name="level">
+        <option>Grade 1</option>
+        <option>Grade 2</option>
+        <option>Grade 3</option>
+        <option>Grade 4</option>
+        <option>Grade 5</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-lg-2 col-md-2 col-sm-3 text-right" for="source">Questions source</label>
+    <div class="col-lg-4 col-md-4 col-sm-4">
+      <input type="text" class="form-control" id="source" name="source" placeholder="Enter source url" required="true">
+    </div>
+  </div>
+  <br />
+  <br />
+  <br />
+  <div class="form-group">
+    <strong class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">Paste your questions in the textarea below:</strong>
+  </div>
+  <div class="form-group">
+    <strong class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">One question per line, answers separated by a comma, starting with the correct answer.</strong>
+  </div>
+  <div class="form-group">
+    <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
+      <textarea class="form-control noresize" rows="13" name="questions" required="true" spellcheck="true"></textarea>
+    </div>
+  </div>
+  <br />
+  <div class="form-group">
+    <div class="col-lg-2 col-lg-offset-8 col-md-2 col-md-offset-8 col-sm-10 col-sm-offset-1 col-xs-12">
+      <input type="submit" class="form-control input-lg btn btn-success" value="IMPORT">
+    </div>
+  </div>
+<% end %>
+
+

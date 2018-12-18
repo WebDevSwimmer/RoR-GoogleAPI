@@ -1,0 +1,30 @@
+<%= content_tag :div, id: @i.to_s, class: "col-lg-3 col-md-6" do -%>
+  <%= form_with model: @Quiz, local: true, url: quiz_path, :method => "put" do |form| %>
+    <% if @answer == nil || (@answer.kind_of?(String) && @answer.empty?) %>
+      <%= form.text_field "answer" + @i.to_s, value: @answer, class: "col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1", placeholder: "Edit Answer #" + @i.to_s, disabled: true %>
+      <%= form.submit :value => "Save", class: "btn col-lg-4 col-lg-offset-6 col-md-6 col-md-offset-4 col-xs-10 col-xs-offset-1 hidden" %>
+      <%= content_tag :div, @answer, id: "answer" + @i.to_s, class: "col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1 hidden" %>
+    <% else %>
+      <%= form.text_field "answer" + @i.to_s, value: @answer, class: "col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1 hidden", placeholder: "Edit Answer #" + @i.to_s %>
+      <%= form.submit :value => "Save", class: "btn col-lg-4 col-lg-offset-6 col-md-6 col-md-offset-4 col-xs-10 col-xs-offset-1 hidden" %>
+      <%= content_tag :div, @answer, id: "answer" + @i.to_s, class: "col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1" %>
+    <% end %>
+    <%= button_tag @answer.kind_of?(String) && !@answer.empty? ? "Edit" : "Generate", class: "btn col-lg-4 col-lg-offset-6 col-md-6 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1" %>
+  <% end %>
+  <%= form_with model: @Quiz, local: true, url: quiz_path, :method => "put", class: @answer.kind_of?(String) && !@answer.empty? ? "visible" : "invisible" do |form| %>
+    <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+      <div class="square col-lg-4 col-lg-offset-2 col-md-4 col-md-offset-3 col-sm-6 col-sm-offset-2 col-xs-offset-4" id="square"></div>
+      <div class="radio">
+        <label><%= form.radio_button "optAnswer" + @i.to_s, true%> Select</label>   
+      </div>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+      <div class="square col-lg-4 col-lg-offset-2 col-md-4 col-md-offset-3 col-sm-6 col-sm-offset-2 col-xs-offset-4" id="square"></div>
+      <div class="radio">
+        <label><%= form.radio_button "optAnswer" + @i.to_s, true%> Select</label>   
+      </div>
+    </div> 
+    <button class="btn col-lg-7 col-lg-offset-3 col-md-7 col-md-offset-3 col-sm-4 col-sm-offset-2 col-xs-10 col-xs-offset-1">Find more images</button>
+    <input type="submit" class="btn col-lg-3 col-lg-offset-5 col-md-3 col-md-offset-5 col-sm-2 col-sm-offset-2 col-xs-10 col-xs-offset-1" value="Save">
+  <% end %>
+<% end -%>
